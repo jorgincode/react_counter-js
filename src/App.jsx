@@ -1,33 +1,20 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import './App.scss';
 
 export const App = () => {
   const [count, setCount] = useState(0);
-  const checkDiv5 = useRef(false);
 
   const addOne = () => {
     // write code here
-    setCount(prevCount => {
-      const next = prevCount + 1;
-
-      if (checkDiv5.current && next % 5 === 0) {
-        checkDiv5.current = false;
-
-        return next + 100;
-      }
-
-      checkDiv5.current = false;
-
-      return next;
-    });
+    setCount(prevCount => prevCount + 1);
   };
 
   const add100 = () => {
     // write code here
-    checkDiv5.current = true;
     setCount(prevCount => prevCount + 100);
   };
 
+  // DON'T change the code below
   const increase = () => {
     if (count % 5 === 0) {
       add100();
